@@ -1,132 +1,187 @@
 <div align="center">
 
-# 🚚Khass Logistics Performance Dashboard
+<h1><img src="assets/khass-logo.png" height="72" alt="Khass Designs and Prints logo">&nbsp; Khass Logistics Performance Dashboard</h1>
 
-</div>
-### How a printing business in Lapai got its deliveries **8 hours faster**, **18 points more on time** and **5% cheaper**, and how I built the proof from the foundation up.
+**Tracks why a Lapai printing business gets its materials late from Lagos, finds the slow trucks and untrusted suppliers that delay printing and orders, and shows how to fix them with data.**
 
 ![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?logo=mysql&logoColor=white)
-![Power BI](https://img.shields.io/badge/Power%20BI-DAX%20%2B%20Dashboard-F2C811?logo=powerbi&logoColor=black)
-![Python](https://img.shields.io/badge/Python-data%20generator-3776AB?logo=python&logoColor=white)
-![Canva](https://img.shields.io/badge/Canva-portfolio-00C4CC?logo=canva&logoColor=white)
+![Power BI](https://img.shields.io/badge/Power%20BI-Dashboard%20%2B%20DAX-F2C811?logo=powerbi&logoColor=black)
 
-**[📊 View the 5-slide portfolio](ADD-YOUR-CANVA-LINK-HERE)** · **[🧱 See how it was built](#-built-from-the-foundation-up)** · **[⚡ Run it in 5 minutes](#-run-it-in-5-minutes)**
+**[📊 View my portfolio](ADD-YOUR-CANVA-LINK-HERE)** · **[⚡ Run it in 5 minutes](#run-it-in-5-minutes)**
 
 </div>
 
 ---
 
-## 👀 The 30-second story
+## 1. Title
 
-**Problem.** Khass Designs and Prints prints in **Lapai**, but its materials come from **Lagos**, a long road trip away (Lagos → Lapai → Minna → Abuja). Slow trucks and untrusted suppliers made printing start late and orders arrive late.
+**Logistics Performance Analysis: a KPI dashboard (descriptive and diagnostic analysis) for a printing business in Nigeria**
 
-**What I built.** A MySQL database, analysis queries and a 5-page Power BI dashboard that show *where* the delays happen and *why*, with every number checked between SQL and Power BI.
+| | |
+|---|---|
+| **Type of analysis** | Descriptive (what happened) and diagnostic (why it happened). A baseline period is compared with a current period on four KPIs. |
+| **Industry** | Logistics and supply chain · small print manufacturing, Nigeria |
+| **Tools** | MySQL and Power BI |
+| **Period covered** | January 2024 to October 2026 (sample data) |
 
-**Result.**
+---
 
-| What the owner cares about | Before (Jan–Jun 2024) | Now (Apr–Sep 2026) | Change |
+## 2. Executive summary
+
+- **Business problem.** Khass Designs and Prints prints in Lapai, but its materials come from Lagos, a long road trip away. Slow trucks and untrusted suppliers made printing start late and orders arrive late.
+- **Solution.** I built a MySQL database and a 5-page Power BI dashboard that compare Jan–Jun 2024 with Apr–Sep 2026 on four KPIs, then worked out *why* each one moved.
+- **Impact.**
+
+| KPI | Before | Now | Change |
 |---|:---:|:---:|:---:|
 | 🛣️ Lagos → Lapai delivery time | 26.0 h | **18.0 h** | **−8 h (−31%)** |
 | ✅ Orders delivered on time | 64% | **82%** | **+18 points** |
 | 💰 Logistics cost per order | ₦5,244 | **₦4,981** | **−5.0%** |
 | 📦 Supplier fill rate | 73.6% | **96.6%** | **+23 points** |
 
-> 🔎 **Why a recruiter should care:** this isn't a chart on a sample file. It's a full path from a business problem to a database, to a dashboard, to a recommendation, and the numbers reconcile at every step.
+- **Next steps.** Replace the sample data with the company's real records, refresh the dashboard automatically, and attack the two causes of lateness that remain: print backlog and customer changes. [Details in section 7.](#7-next-steps)
+
+### ⭐ What makes this project stand out
+1. **It goes all the way from a business problem to a decision.** Database, queries, dashboard, findings and recommendations are all here.
+2. **Every number is reconciled.** The SQL results and the Power BI cards match, and I found and fixed data errors along the way.
+3. **My reasoning is on show.** Each finding follows *What I saw → Why I think so → So what*.
+4. **It is built to be used.** The owner can add new orders with a script, run 12 data-quality checks, and refresh.
+5. **It is honest about its limits.** The data is simulated and the order count is small, so I compare six-month windows instead of trusting single months.
+6. **It is explained in plain words.** I wrote the story for the business owner so a non-technical reader can follow it.
 
 ---
 
-## 🖼️ Dashboard preview
+## 3. Business problem
 
-| | |
-|---|---|
-| ![Executive overview](04-roof/screenshots/page-1-executive-overview.png) | ![Delivery and carriers](04-roof/screenshots/page-2-delivery-carriers.png) |
-| ![Orders and bottlenecks](04-roof/screenshots/page-3-orders-bottlenecks.png) | ![Supply chain](04-roof/screenshots/page-4-supply-chain.png) |
+![How the business works and where it hurts](assets/business-flow.png)
 
-<sub>Add your screenshots to `04-roof/screenshots/` (see the note in that folder). The data behind them is simulated.</sub>
+**How the business works.** Khass Designs and Prints makes gift boxes, magic cups, branded shirts, flyers, posters and banners, business cards, invitation cards, paper bags, jotters and screen prints for student associations, departments, faculties and individuals. Most raw materials (flex, school kits, blank shirts, paper) are bought in **Lagos** and travel the long road to the print shop in **Lapai**. Finished orders go to customers in Lapai, Minna and Abuja.
+
+**Where it hurts.**
+- Trucks and parcel services were slow and unpredictable (about 26 hours from Lagos to Lapai).
+- It was hard to find suppliers the business could trust.
+- When materials arrive late, printing starts late, and the customer's order arrives late.
+
+**Why I chose to solve it.**
+- I live in Lagos and act as the middleman and Logistics Manager between the suppliers and the print shop, so I see these delays first-hand.
+- Materials are the first step of **every** order. One fix at that step helps every order after it.
+- The owner can feel the result directly: orders on time, customers happy, and money saved on each delivery.
 
 ---
 
-## 🏗️ Built from the foundation up
+## 4. Methodology
 
-Like a house, the project went up in stages. Open any folder to see that stage's work.
+**Approach:** KPI dashboard analysis. I compared a baseline period with a current period, then looked for the cause behind each change.
 
-| Stage | Folder | What I built | Skills it shows |
-|---|---|---|---|
-| 🧱 **1. Foundation** | [`01-foundation`](01-foundation) | The business problem, 4 KPI definitions, data dictionary, data model (ERD) | Problem framing, data modelling |
-| 🏗️ **2. Framework** | [`02-framework`](02-framework) | MySQL schema with keys and indexes, date table, INSERT scripts, compact dataset | SQL DDL, relational design |
-| 🧱 **3. Walls** | [`03-walls`](03-walls) | Reporting views and one analysis query per KPI | Joins, CTEs, window functions, aggregation |
-| 🏠 **4. Roof** | [`04-roof`](04-roof) | Power BI model, 40 DAX measures, 5-page dashboard, theme | Power BI, DAX, visual design |
-| 🔑 **5. Move-in** | [`05-move-in`](05-move-in) | Key findings and recommendations, each with its reasoning | Insight, storytelling |
-| 🔧 **6. Maintenance** | [`06-maintenance`](06-maintenance) | Scripts to add new data, 12 data-quality checks, refresh routine | Data operations, quality control |
-| 🧰 **Extras** | [`extras`](extras) | Python data generator, full dataset (2,685 orders) | Python, pandas, reproducibility |
-
-### The blueprint
+| Step | What I did | Where |
+|---|---|---|
+| 1. Frame | Wrote the problem, the four questions and exact KPI definitions | [`01-foundation`](01-foundation) |
+| 2. Model | Designed the MySQL database: 9 tables, keys, a date table | [`02-framework`](02-framework) |
+| 3. Query | Built reporting views and one analysis query per KPI | [`03-walls`](03-walls) |
+| 4. Visualise | Built the Power BI model, 40 DAX measures and a 5-page dashboard | [`04-roof`](04-roof) |
+| 5. Explain | Wrote findings and recommendations with the reasoning | [`05-move-in`](05-move-in) |
+| 6. Maintain | Wrote scripts to add new data and 12 quality checks | [`06-maintenance`](06-maintenance) |
 
 ```mermaid
 flowchart LR
-  A["Python generator<br/>simulated data"] --> B[("MySQL<br/>khass_logistics_mini")]
-  G["Update script<br/>new orders and shipments"] --> B
-  B --> C["SQL views<br/>vw_fact_*"]
-  C --> D["Power BI<br/>model + DAX"]
-  D --> E["5-page dashboard"]
-  E --> F["Findings and<br/>recommendations"]
+  A[("MySQL database<br/>9 tables")] --> B["SQL views<br/>one clean table per topic"]
+  B --> C["Power BI<br/>model and DAX"]
+  C --> D["5-page dashboard"]
+  D --> E["Findings and<br/>recommendations"]
+  F["Update script<br/>new orders and shipments"] --> A
 ```
 
----
+**How I measured each KPI** (the same in SQL and Power BI):
+- **Delivery time:** hours from dispatch to arrival on the Lagos → Lapai lane.
+- **On-time delivery:** the share of delivered orders that arrived by the promised time.
+- **Cost per order:** shipping and handling cost divided by the number of orders, so growth in orders can't hide a saving.
+- **Fill rate:** quantity received divided by quantity requested from suppliers.
 
-## 💡 What the data says (with the reasoning)
+Full definitions: [`01-foundation/kpi-definitions.md`](01-foundation/kpi-definitions.md). Data model: [`01-foundation/data-model.md`](01-foundation/data-model.md).
 
-1. **Deliveries are 8 hours faster.** The carriers average 27.9 h, 22.9 h and 17.4 h, and shipments timed to production days rose from 0% to 100%. *The gain came from carrier choice and planning.*
-2. **More orders arrive on time.** Waiting for materials fell from about 52 h to about 21 h. *Fixing supply moved on-time delivery.*
-3. **Each order costs 5% less to deliver.** I measured cost *per order* so growth in order numbers can't fake or hide a saving.
-4. **Suppliers deliver more of what we ask for.** Orders placed with vetted, trusted suppliers went from 25% to 100%, and fill rate rose to 96.6%.
+**About the data.** All data is **simulated** for this portfolio project. It models a realistic improvement story, so my explanations show *how I reason*, not facts about a real company.
 
-➡️ Full chain of reasoning and recommendations: [`05-move-in/insights.md`](05-move-in/insights.md)
+### Run it in 5 minutes
 
----
-
-## ⚡ Run it in 5 minutes
-
-**You need:** MySQL 8.0+ and Power BI Desktop (Windows).
+You need MySQL 8.0 or later and Power BI Desktop.
 
 ```bash
-git clone https://github.com/<your-username>/khass-logistics-performance-dashboard.git
-cd khass-logistics-performance-dashboard
-
 mysql -u root -p < 02-framework/sql/01_mini_schema.sql
 mysql -u root -p < 02-framework/sql/02a_mini_insert_dimensions.sql
 mysql -u root -p < 02-framework/sql/02b_mini_insert_facts.sql
 mysql -u root -p < 03-walls/sql/03_mini_views.sql
 mysql -u root -p < 03-walls/sql/05_mini_analysis_queries.sql     # prints the headline numbers
 ```
-
-Then connect Power BI: [`04-roof/connect-to-mysql.md`](04-roof/connect-to-mysql.md). No MySQL? Use the CSVs in [`04-roof/powerbi_csv_compact`](04-roof/powerbi_csv_compact).
-
-**Add your own data:** [`06-maintenance`](06-maintenance).
+Then connect Power BI with [`04-roof/connect-to-mysql.md`](04-roof/connect-to-mysql.md). No MySQL? Use the CSV files in [`04-roof/powerbi_csv_compact`](04-roof/powerbi_csv_compact).
 
 ---
 
-## 🧰 Skills demonstrated
+## 5. Skills
 
-| Area | Evidence in this repo |
+| Area | What I did in this project |
 |---|---|
-| **SQL / MySQL** | Schema design with foreign keys, CTEs, window functions, views, update scripts, data-quality checks |
-| **Power BI** | Star and galaxy modelling, 40 DAX measures, time-window KPIs, conditional formatting, 5-page report |
-| **Data validation** | SQL and Power BI results reconciled; real data errors found and fixed (see the commit history) |
-| **Python** | Reproducible simulated data, calibrated to hit target KPIs |
-| **Communication** | Findings explained in plain words, with the reasoning shown |
+| **MySQL** | Database design with primary and foreign keys, joins, CTEs, window functions, views, scripts to insert and update data, data-quality checks |
+| **Power BI** | Data modelling (four fact tables sharing one date table), 40 DAX measures, baseline-vs-current KPI logic, conditional formatting, a 5-page dashboard |
+| **Analysis** | Defining KPIs, comparing periods, finding causes (carrier, scheduling, supplier vetting), checking results two ways |
+| **Communication** | Explaining findings and recommendations in plain language for a business owner |
 
 ---
 
-## ⚠️ An honest note about the data
+## 6. Results and business recommendations
 
-All data is **simulated** for this portfolio project. It models a realistic improvement story, so the explanations show *how I reason*, not facts about a real company. I would rather say that plainly than overclaim.
+### The four KPIs
+
+![Before and after for the four KPIs](assets/kpi-before-after.png)
+
+### Why deliveries got faster
+
+| Carrier speed | Waiting before printing |
+|---|---|
+| ![Carrier speed](assets/carrier-speed.png) | ![Waiting time](assets/waiting-time.png) |
+
+- **Carrier choice and planning made the trip faster.** The fastest carrier averages 17.4 h against 27.9 h for the slowest. Shipments timed to production days went from 0% to 100%.
+- **Orders waited far less for materials.** Waiting for materials fell from about 52 h to about 21 h, so printing started sooner and more orders arrived on time.
+- **Trusted suppliers delivered what we asked for.** Orders placed with vetted suppliers went from 25% to 100%, and fill rate rose to 96.6%.
+
+### The dashboard
+
+| | |
+|---|---|
+| ![Executive overview](04-roof/screenshots/page-1-executive-overview.png) | ![Delivery and carriers](04-roof/screenshots/page-2-delivery-carriers.png) |
+| ![Orders and bottlenecks](04-roof/screenshots/page-3-orders-bottlenecks.png) | ![Supply chain](04-roof/screenshots/page-4-supply-chain.png) |
+
+### Business recommendations
+
+| # | Because… | I recommend… | I'd measure it by… |
+|---|---|---|---|
+| 1 | the fastest carrier averaged 17.4 h against 27.9 h | keeping that carrier and timing shipments to production days | average transit hours each month |
+| 2 | trusted suppliers filled about 97% of requests | vetting every new supplier before large orders | fill rate by supplier |
+| 3 | the only late reasons left in 2026 were print backlog and customer changes | aiming the next gains at the print schedule and clearer customer briefs | late orders by reason |
+| 4 | single months have only a few orders and look jumpy | judging results over six-month periods | the same two periods every time |
+
+More detail and the full reasoning: [`05-move-in/insights.md`](05-move-in/insights.md).
+
+---
+
+## 7. Next steps
+
+**Limitations I would fix**
+- **Use real data.** The data here is simulated, so the next step is to load the company's own orders, shipments and supplier records.
+- **Add more orders.** The compact sample has 28 orders, so quarterly percentages rest on very few. A year or more of real orders would make monthly trends reliable.
+- **Compare like with like.** Supplier fill rate adds up different units (litres, packs, pieces). I would measure it per product, or by value in naira.
+
+**What I would work on with more time**
+- Set up an automatic refresh so the dashboard updates itself when new rows are added.
+- Add cost per kilogram by route and carrier, to see which road is worth its price.
+- Track how late orders are, not just whether they are late, and add customer feedback to test whether "on time" matches what customers feel.
+- Add a forecast of delivery times, so the owner can plan production days ahead.
+- Design a phone-friendly page so the owner can check the numbers on the move.
 
 ---
 
 <div align="center">
 
 **Built by [Your Name]** · Data Analyst
-[LinkedIn](ADD-LINK) · [Email](mailto:you@example.com) · [Canva portfolio](ADD-YOUR-CANVA-LINK-HERE)
+[LinkedIn](ADD-LINK) · [Email](mailto:you@example.com) · [Portfolio](ADD-YOUR-CANVA-LINK-HERE)
 
 </div>
