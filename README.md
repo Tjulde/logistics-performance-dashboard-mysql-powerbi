@@ -2,6 +2,7 @@
 
 # 🚚Khass Logistics Performance Dashboard
 
+</div>
 ### How a printing business in Lapai got its deliveries **8 hours faster**, **18 points more on time** and **5% cheaper**, and how I built the proof from the foundation up.
 
 ![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?logo=mysql&logoColor=white)
