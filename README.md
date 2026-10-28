@@ -1,6 +1,6 @@
 <div align="center">
 
-# ![Uploading WhatsApp Image 2026-10-20 at 08.19.53.jpeg…]() Khass Logistics Performance Dashboard
+# 🚚Khass Logistics Performance Dashboard
 
 ### How a printing business in Lapai got its deliveries **8 hours faster**, **18 points more on time** and **5% cheaper**, and how I built the proof from the foundation up.
 
