@@ -53,7 +53,7 @@
 
 ## 3. Business problem
 
-![How the business works and where it hurts](assets/business-flow.png)
+![How the business works and where it hurts](Picture/business-flow.png)
 
 **How the business works.** Khass Designs and Prints makes gift boxes, magic cups, branded shirts, flyers, posters and banners, business cards, invitation cards, paper bags, jotters and screen prints for student associations, departments, faculties and individuals. Most raw materials (flex, school kits, blank shirts, paper) are bought in **Lagos** and travel the long road to the print shop in **Lapai**. Finished orders go to customers in Lapai, Minna and Abuja.
 
@@ -137,7 +137,7 @@ Then connect Power BI with [`04-roof/connect-to-mysql.md`](04-roof/connect-to-my
 
 | Carrier speed | Waiting before printing |
 |---|---|
-| ![Carrier speed](assets/carrier-speed.png) | ![Waiting time](assets/waiting-time.png) |
+| ![Carrier speed](Picture/carrier-speed.png) | ![Waiting time](Picture/waiting-time.png) |
 
 - **Carrier choice and planning made the trip faster.** The fastest carrier averages 17.4 h against 27.9 h for the slowest. Shipments timed to production days went from 0% to 100%.
 - **Orders waited far less for materials.** Waiting for materials fell from about 52 h to about 21 h, so printing started sooner and more orders arrived on time.
@@ -181,7 +181,7 @@ More detail and the full reasoning: [`05-move-in/insights.md`](05-move-in/insigh
 
 <div align="center">
 
-**Built by [Your Name]** · Data Analyst
-[LinkedIn](ADD-LINK) · [Email](mailto:you@example.com) · [Portfolio](ADD-YOUR-CANVA-LINK-HERE)
+**Built by [Julde Toheed]** · Data Analyst
+[LinkedIn](ADD-LINK) · [Email](mailto:juldetoheed@gmail.com) · [Portfolio](ADD-YOUR-CANVA-LINK-HERE)
 
 </div>
