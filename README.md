@@ -39,14 +39,6 @@
 
 - **Next steps.** Replace the sample data with the company's real records, refresh the dashboard automatically, and attack the two causes of lateness that remain: print backlog and customer changes. [Details in section 7.](#7-next-steps)
 
-### ⭐ What makes this project stand out
-1. **It goes all the way from a business problem to a decision.** Database, queries, dashboard, findings and recommendations are all here.
-2. **Every number is reconciled.** The SQL results and the Power BI cards match, and I found and fixed data errors along the way.
-3. **My reasoning is on show.** Each finding follows *What I saw → Why I think so → So what*.
-4. **It is built to be used.** The owner can add new orders with a script, run 12 data-quality checks, and refresh.
-5. **It is honest about its limits.** The data is simulated and the order count is small, so I compare six-month windows instead of trusting single months.
-6. **It is explained in plain words.** I wrote the story for the business owner so a non-technical reader can follow it.
-
 ---
 
 ## Business problem
@@ -179,7 +171,7 @@ More detail and the full reasoning: [`05-move-in/insights.md`](05-move-in/insigh
 
 <div align="center">
 
-**Built by [Julde Toheed]** · Data Analyst
+**Built by Julde Toheed** · Data Analyst
 [LinkedIn](www.linkedin.com/in/julde-toheed) · [Email](mailto:juldetoheed@gmail.com) · [Portfolio](ADD-YOUR-CANVA-LINK-HERE)
 
 </div>
