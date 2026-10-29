@@ -1,6 +1,6 @@
 <div align="center">
 
-<h1><img src="assets/khass-logo.png" height="72" alt="Khass Designs and Prints logo">&nbsp; Khass Logistics Performance Dashboard</h1> Khass Logistics Performance Dashboard</h1>
+<h1><img src="assets/khass-logo.png" height="72" alt="Khass Designs and Prints logo">&nbsp; Khass Logistics Performance Dashboard</h1>
 
 **Tracks why a Lapai printing business gets its materials late from Lagos, finds the slow trucks and untrusted suppliers that delay printing and orders, and shows how to fix them with data.**
 
