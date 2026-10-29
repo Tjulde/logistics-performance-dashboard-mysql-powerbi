@@ -1,0 +1,13 @@
+customer_id,customer_name,customer_type,location_id
+1,History Students' Association,Student Association,4
+2,Microbiology Students' Association,Student Association,2
+3,Chemistry Students' Association,Student Association,3
+4,Public Administration Students' Association,Student Association,4
+5,Dept. of Computer Science,Department,2
+6,Dept. of Mass Communication,Department,3
+7,Dept. of Physics,Department,2
+8,Dept. of Chemistry,Department,4
+9,Dept. of Geography,Department,3
+10,Faculty of Management Sciences,Faculty,4
+11,Faculty of Agriculture,Faculty,2
+12,Individual Client 05,Individual,3
