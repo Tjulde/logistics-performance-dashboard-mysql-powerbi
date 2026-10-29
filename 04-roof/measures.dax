@@ -1,0 +1,89 @@
+// =====================================================================
+// Khass Logistics Performance Dashboard | all DAX in one place
+// Tables loaded from MySQL views: fact_orders, fact_shipments, fact_purchase_orders, fact_inventory, dim_date
+// Put the measures in a table called _Measures (Home > Enter data).
+// =====================================================================
+
+// ---------- CALCULATED COLUMNS (Table tools > New column) ----------
+// dim_date
+Quarter Label = "Q" & dim_date[quarter_num] & " " & dim_date[year_num]
+Quarter Sort  = dim_date[year_num] * 10 + dim_date[quarter_num]      // then: Quarter Label > Sort by column > Quarter Sort
+// fact_orders
+Hours Late =
+IF ( fact_orders[on_time_flag] = 0,
+     ROUND ( DATEDIFF ( fact_orders[promised_ts], fact_orders[delivered_ts], MINUTE ) / 60, 1 ) )
+// fact_shipments
+Map Location = fact_shipments[destination_city] & ", Nigeria"
+Dest Latitude  = SWITCH ( fact_shipments[destination_city], "Lagos", 6.5244, "Abuja", 9.0765, "Lapai", 9.0431, "Minna", 9.6139 )
+Dest Longitude = SWITCH ( fact_shipments[destination_city], "Lagos", 3.3792, "Abuja", 7.3986, "Lapai", 6.5675, "Minna", 6.5569 )
+
+// ---------- DISCONNECTED TABLE (Table tools > New table) ----------
+Period Compare =
+DATATABLE ( "Period", STRING, "Sort", INTEGER,
+    { { "Baseline (Jan-Jun 2024)", 1 }, { "Current (Apr-Sep 2026)", 2 } } )     // sort Period by Sort
+
+// ---------- KPI 1: Lagos -> Lapai delivery time ----------
+Avg Transit Hrs =
+CALCULATE ( AVERAGE ( fact_shipments[transit_hours] ),
+    fact_shipments[shipment_type] = "Inbound", fact_shipments[lane] = "Lagos -> Lapai" )
+Transit Baseline = CALCULATE ( [Avg Transit Hrs], REMOVEFILTERS ( dim_date ), dim_date[period_label] = "Baseline (Jan-Jun 2024)" )
+Transit Current  = CALCULATE ( [Avg Transit Hrs], REMOVEFILTERS ( dim_date ), dim_date[period_label] = "Current (Apr-Sep 2026)" )
+Transit Hrs Saved   = [Transit Baseline] - [Transit Current]
+Transit Reduction % = DIVIDE ( [Transit Hrs Saved], [Transit Baseline] )
+KPI1 Headline = FORMAT ( [Transit Baseline], "0.0" ) & " h → " & FORMAT ( [Transit Current], "0.0" ) & " h"
+KPI1 Subtitle =
+VAR saved = [Transit Baseline] - [Transit Current]
+RETURN "−" & FORMAT ( saved, "0" ) & " hours (−" & FORMAT ( DIVIDE ( saved, [Transit Baseline] ), "0%" ) & ")"
+% Scheduled =
+CALCULATE ( AVERAGE ( fact_shipments[scheduled_to_production_slot] ),
+    fact_shipments[shipment_type] = "Inbound", fact_shipments[lane] = "Lagos -> Lapai" )
+
+// ---------- KPI 2: on-time delivery ----------
+On-Time %        = AVERAGE ( fact_orders[on_time_flag] )            // blanks (not delivered yet) are ignored
+OnTime Baseline  = CALCULATE ( [On-Time %], REMOVEFILTERS ( dim_date ), dim_date[period_label] = "Baseline (Jan-Jun 2024)" )
+OnTime Current   = CALCULATE ( [On-Time %], REMOVEFILTERS ( dim_date ), dim_date[period_label] = "Current (Apr-Sep 2026)" )
+KPI2 Headline    = FORMAT ( [OnTime Baseline], "0%" ) & " → " & FORMAT ( [OnTime Current], "0%" )
+KPI2 Subtitle    =
+VAR pts = ( [OnTime Current] - [OnTime Baseline] ) * 100
+RETURN IF ( pts >= 0, "+", "−" ) & FORMAT ( ABS ( pts ), "0" ) & " percentage points"
+On-Time % by Period =
+VAR p = SELECTEDVALUE ( 'Period Compare'[Period] )
+RETURN CALCULATE ( [On-Time %], REMOVEFILTERS ( dim_date ), dim_date[period_label] = p )
+Orders                = DISTINCTCOUNT ( fact_orders[order_id] )
+Late Orders           = CALCULATE ( COUNTROWS ( fact_orders ), fact_orders[on_time_flag] = 0 )
+Avg Material Wait Hrs = AVERAGE ( fact_orders[material_wait_hours] )
+Avg Queue Hrs         = AVERAGE ( fact_orders[queue_hours] )
+Max Hours Late        = MAX ( fact_orders[Hours Late] )
+
+// ---------- KPI 3: logistics cost per order ----------
+Total Logistics Cost = SUM ( fact_shipments[total_logistics_cost_ngn] )
+Cost per Order       = DIVIDE ( [Total Logistics Cost], [Orders] )
+CPO Baseline = CALCULATE ( [Cost per Order], REMOVEFILTERS ( dim_date ), dim_date[period_label] = "Baseline (Jan-Jun 2024)" )
+CPO Current  = CALCULATE ( [Cost per Order], REMOVEFILTERS ( dim_date ), dim_date[period_label] = "Current (Apr-Sep 2026)" )
+KPI3 Headline = "₦" & FORMAT ( [CPO Baseline], "#,0" ) & " → ₦" & FORMAT ( [CPO Current], "#,0" )
+KPI3 Subtitle =
+VAR chg = DIVIDE ( [CPO Current], [CPO Baseline] ) - 1
+RETURN IF ( chg < 0, "−", "+" ) & FORMAT ( ABS ( chg ), "0.0%" )
+Cost per Order by Period =
+VAR p = SELECTEDVALUE ( 'Period Compare'[Period] )
+RETURN CALCULATE ( [Cost per Order], REMOVEFILTERS ( dim_date ), dim_date[period_label] = p )
+Shipments                   = COUNTROWS ( fact_shipments )
+Kg Moved                    = SUM ( fact_shipments[weight_kg] )
+Avg Transit Hrs (All Lanes) = AVERAGE ( fact_shipments[transit_hours] )
+Avg Stockout Days = AVERAGE ( fact_inventory[stockout_days] )
+% Below Reorder   = AVERAGE ( fact_inventory[below_reorder] )
+
+// ---------- KPI 4: supplier fill rate ----------
+Supplier Fill Rate =
+DIVIDE ( SUM ( fact_purchase_orders[qty_received] ),
+    CALCULATE ( SUM ( fact_purchase_orders[qty_requested] ), fact_purchase_orders[status] = "Received" ) )
+Fill Baseline = CALCULATE ( [Supplier Fill Rate], REMOVEFILTERS ( dim_date ), dim_date[period_label] = "Baseline (Jan-Jun 2024)" )
+Fill Current  = CALCULATE ( [Supplier Fill Rate], REMOVEFILTERS ( dim_date ), dim_date[period_label] = "Current (Apr-Sep 2026)" )
+KPI4 Headline = FORMAT ( [Fill Baseline], "0.0%" ) & " → " & FORMAT ( [Fill Current], "0.0%" )
+KPI4 Subtitle = "supply gap closed"
+POs with Trusted Suppliers % = AVERAGE ( fact_purchase_orders[trusted_supplier_flag] )
+Supplier On-Time Dispatch %  = AVERAGE ( fact_purchase_orders[supplier_on_time_flag] )
+PO Count           = COUNTROWS ( fact_purchase_orders )
+Supply Gap (units) =
+CALCULATE ( SUM ( fact_purchase_orders[qty_requested] ), fact_purchase_orders[status] = "Received" )
+    - SUM ( fact_purchase_orders[qty_received] )
