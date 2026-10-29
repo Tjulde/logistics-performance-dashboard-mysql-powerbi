@@ -1,0 +1,7 @@
+carrier_id,carrier_name,carrier_type,active_from,active_to
+1,Lagos Park Parcel Service,Bus-park parcel,2024-01-01,2024-11-30
+2,NorthLink Freight,Road freight,2024-01-01,\N
+3,Capital Express Cargo,Road freight,2024-07-01,\N
+4,SwiftRoute Logistics,Scheduled road freight,2025-02-01,\N
+5,Savanna Dispatch,Regional courier,2024-01-01,\N
+6,Khass In-House Delivery,In-house rider,2024-01-01,\N
