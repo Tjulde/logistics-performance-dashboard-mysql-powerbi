@@ -147,7 +147,7 @@ Then connect Power BI with [`04-roof/connect-to-mysql.md`](04-roof/connect-to-my
 
 | | |
 |---|---|
-| ![Executive overview](04-roofscreenshotspage-1-executive-overview) | ![Delivery and carriers](04-roof/screenshots/page-2-delivery-carriers.png) |
+| ![Executive overview](04-roof/screenshots/page-1-executive-overview.png) | ![Delivery and carriers](04-roof/screenshots/page-2-delivery-carriers.png) |
 | ![Orders and bottlenecks](04-roof/screenshots/page-3-orders-bottlenecks.png) | ![Supply chain](04-roof/screenshots/page-4-supply-chain.png) |
 
 ### Business recommendations
