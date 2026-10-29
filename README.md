@@ -1,6 +1,6 @@
 <div align="center">
 
-<h1><img src="Picture/khass-logo.png" height="72" alt="Khass Designs and Prints logo">&nbsp; Khass Logistics Performance Dashboard</h1>
+<h1><img src="assets/khass-logo.png" height="72" alt="Khass Designs and Prints logo">&nbsp; Khass Logistics Performance Dashboard</h1>
 
 **Tracks why a Lapai printing business gets its materials late from Lagos, finds the slow trucks and untrusted suppliers that delay printing and orders, and shows how to fix them with data.**
 
@@ -53,7 +53,7 @@
 
 ## 3. Business problem
 
-![How the business works and where it hurts](Picture/business-flow.png)
+![How the business works and where it hurts](assets/business-flow.png)
 
 **How the business works.** Khass Designs and Prints makes gift boxes, magic cups, branded shirts, flyers, posters and banners, business cards, invitation cards, paper bags, jotters and screen prints for student associations, departments, faculties and individuals. Most raw materials (flex, school kits, blank shirts, paper) are bought in **Lagos** and travel the long road to the print shop in **Lapai**. Finished orders go to customers in Lapai, Minna and Abuja.
 
@@ -75,7 +75,7 @@
 
 | Step | What I did | Where |
 |---|---|---|
-| 1. Frame | Wrote the problem, the four questions and exact KPI definitions | [`Business problem,solution & (Foundation)`](Business problem,solution & (Foundation) |
+| 1. Frame | Wrote the problem, the four questions and exact KPI definitions | [`01-foundation`](01-foundation) |
 | 2. Model | Designed the MySQL database: 9 tables, keys, a date table | [`02-framework`](02-framework) |
 | 3. Query | Built reporting views and one analysis query per KPI | [`03-walls`](03-walls) |
 | 4. Visualise | Built the Power BI model, 40 DAX measures and a 5-page dashboard | [`04-roof`](04-roof) |
@@ -97,7 +97,7 @@ flowchart LR
 - **Cost per order:** shipping and handling cost divided by the number of orders, so growth in orders can't hide a saving.
 - **Fill rate:** quantity received divided by quantity requested from suppliers.
 
-Full definitions: [`Business problem,solution & (Foundation)/kpi-definitions.md`](Business problem,solution & (Foundation)/kpi-definitions.md). Data model: [`Business problem,solution & (Foundation)/data-model.md`](Business problem,solution & (Foundation)/data-model.md).
+Full definitions: [`01-foundation/kpi-definitions.md`](01-foundation/kpi-definitions.md). Data model: [`01-foundation/data-model.md`](01-foundation/data-model.md).
 
 **About the data.** All data is **simulated** for this portfolio project. It models a realistic improvement story, so my explanations show *how I reason*, not facts about a real company.
 
@@ -131,13 +131,13 @@ Then connect Power BI with [`04-roof/connect-to-mysql.md`](04-roof/connect-to-my
 
 ### The four KPIs
 
-![Before and after for the four KPIs](Picture/kpi-before-after.png)
+![Before and after for the four KPIs](assets/kpi-before-after.png)
 
 ### Why deliveries got faster
 
 | Carrier speed | Waiting before printing |
 |---|---|
-| ![Carrier speed](Picture/carrier-speed.png) | ![Waiting time](Picture/waiting-time.png) |
+| ![Carrier speed](assets/carrier-speed.png) | ![Waiting time](assets/waiting-time.png) |
 
 - **Carrier choice and planning made the trip faster.** The fastest carrier averages 17.4 h against 27.9 h for the slowest. Shipments timed to production days went from 0% to 100%.
 - **Orders waited far less for materials.** Waiting for materials fell from about 52 h to about 21 h, so printing started sooner and more orders arrived on time.
@@ -181,7 +181,7 @@ More detail and the full reasoning: [`05-move-in/insights.md`](05-move-in/insigh
 
 <div align="center">
 
-**Built by [Julde Toheed]** · Data Analyst
-[LinkedIn](ADD-LINK) · [Email](mailto:juldetoheed@gmail.com) · [Portfolio](ADD-YOUR-CANVA-LINK-HERE)
+**Built by [Your Name]** · Data Analyst
+[LinkedIn](ADD-LINK) · [Email](mailto:you@example.com) · [Portfolio](ADD-YOUR-CANVA-LINK-HERE)
 
 </div>
