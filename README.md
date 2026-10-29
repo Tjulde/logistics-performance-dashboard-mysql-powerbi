@@ -75,7 +75,7 @@
 
 | Step | What I did | Where |
 |---|---|---|
-| 1. Frame | Wrote the problem, the four questions and exact KPI definitions | [`01-foundation`](01-foundation) |
+| 1. Frame | Wrote the problem, the four questions and exact KPI definitions | [`Business problem,solution & (Foundation)`](Business problem,solution & (Foundation) |
 | 2. Model | Designed the MySQL database: 9 tables, keys, a date table | [`02-framework`](02-framework) |
 | 3. Query | Built reporting views and one analysis query per KPI | [`03-walls`](03-walls) |
 | 4. Visualise | Built the Power BI model, 40 DAX measures and a 5-page dashboard | [`04-roof`](04-roof) |
@@ -97,7 +97,7 @@ flowchart LR
 - **Cost per order:** shipping and handling cost divided by the number of orders, so growth in orders can't hide a saving.
 - **Fill rate:** quantity received divided by quantity requested from suppliers.
 
-Full definitions: [`01-foundation/kpi-definitions.md`](01-foundation/kpi-definitions.md). Data model: [`01-foundation/data-model.md`](01-foundation/data-model.md).
+Full definitions: [`Business problem,solution & (Foundation)/kpi-definitions.md`](Business problem,solution & (Foundation)/kpi-definitions.md). Data model: [`Business problem,solution & (Foundation)/data-model.md`](Business problem,solution & (Foundation)/data-model.md).
 
 **About the data.** All data is **simulated** for this portfolio project. It models a realistic improvement story, so my explanations show *how I reason*, not facts about a real company.
 
@@ -131,7 +131,7 @@ Then connect Power BI with [`04-roof/connect-to-mysql.md`](04-roof/connect-to-my
 
 ### The four KPIs
 
-![Before and after for the four KPIs](assets/kpi-before-after.png)
+![Before and after for the four KPIs](Picture/kpi-before-after.png)
 
 ### Why deliveries got faster
 
