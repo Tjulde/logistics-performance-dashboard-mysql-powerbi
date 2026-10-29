@@ -13,9 +13,7 @@
 
 ---
 
-## 1. Title
-
-**Logistics Performance Analysis: a KPI dashboard (descriptive and diagnostic analysis) for a printing business in Nigeria**
+## **Logistics Performance Analysis: a KPI dashboard (descriptive and diagnostic analysis) for a printing business in Nigeria**
 
 | | |
 |---|---|
@@ -26,7 +24,7 @@
 
 ---
 
-## 2. Executive summary
+## Executive summary
 
 - **Business problem.** Khass Designs and Prints prints in Lapai, but its materials come from Lagos, a long road trip away. Slow trucks and untrusted suppliers made printing start late and orders arrive late.
 - **Solution.** I built a MySQL database and a 5-page Power BI dashboard that compare Jan–Jun 2024 with Apr–Sep 2026 on four KPIs, then worked out *why* each one moved.
@@ -51,7 +49,7 @@
 
 ---
 
-## 3. Business problem
+## Business problem
 
 ![How the business works and where it hurts](assets/business-flow.png)
 
@@ -69,7 +67,7 @@
 
 ---
 
-## 4. Methodology
+## Methodology
 
 **Approach:** KPI dashboard analysis. I compared a baseline period with a current period, then looked for the cause behind each change.
 
@@ -116,7 +114,7 @@ Then connect Power BI with [`04-roof/connect-to-mysql.md`](04-roof/connect-to-my
 
 ---
 
-## 5. Skills
+## Skills
 
 | Area | What I did in this project |
 |---|---|
@@ -127,7 +125,7 @@ Then connect Power BI with [`04-roof/connect-to-mysql.md`](04-roof/connect-to-my
 
 ---
 
-## 6. Results and business recommendations
+## Results and business recommendations
 
 ### The four KPIs
 
@@ -163,7 +161,7 @@ More detail and the full reasoning: [`05-move-in/insights.md`](05-move-in/insigh
 
 ---
 
-## 7. Next steps
+## Next steps
 
 **Limitations I would fix**
 - **Use real data.** The data here is simulated, so the next step is to load the company's own orders, shipments and supplier records.
@@ -182,6 +180,6 @@ More detail and the full reasoning: [`05-move-in/insights.md`](05-move-in/insigh
 <div align="center">
 
 **Built by [Your Name]** · Data Analyst
-[LinkedIn](ADD-LINK) · [Email](mailto:you@example.com) · [Portfolio](ADD-YOUR-CANVA-LINK-HERE)
+[LinkedIn](www.linkedin.com/in/julde-toheed) · [Email](mailto:juldetoheed@gmail.com) · [Portfolio](ADD-YOUR-CANVA-LINK-HERE)
 
 </div>
