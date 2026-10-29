@@ -179,7 +179,7 @@ More detail and the full reasoning: [`05-move-in/insights.md`](05-move-in/insigh
 
 <div align="center">
 
-**Built by [Your Name]** · Data Analyst
+**Built by [Julde Toheed]** · Data Analyst
 [LinkedIn](www.linkedin.com/in/julde-toheed) · [Email](mailto:juldetoheed@gmail.com) · [Portfolio](ADD-YOUR-CANVA-LINK-HERE)
 
 </div>
