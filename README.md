@@ -37,7 +37,6 @@
 | 💰 Logistics cost per order | ₦5,244 | **₦4,981** | **−5.0%** |
 | 📦 Supplier fill rate | 73.6% | **96.6%** | **+23 points** |
 
-- **Next steps.** Replace the sample data with the company's real records, refresh the dashboard automatically, and attack the two causes of lateness that remain: print backlog and customer changes. [Details in section 7.](#7-next-steps)
 
 ---
 
