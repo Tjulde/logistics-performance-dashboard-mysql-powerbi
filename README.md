@@ -171,6 +171,6 @@ More detail and the full reasoning: [`05-move-in/insights.md`](05-move-in/insigh
 <div align="center">
 
 **Built by Julde Toheed** · Data Analyst
-[LinkedIn](www.linkedin.com/in/julde-toheed) · [Email](mailto:juldetoheed@gmail.com) · [Portfolio](ADD-YOUR-CANVA-LINK-HERE)
+[LinkedIn](www.linkedin.com/in/julde-toheed) · [Email](mailto:juldetoheed@gmail.com) · [Portfolio](https://canva.link/sl2tsx4x0eob9ot)
 
 </div>
