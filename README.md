@@ -7,7 +7,7 @@
 ![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?logo=mysql&logoColor=white)
 ![Power BI](https://img.shields.io/badge/Power%20BI-Dashboard%20%2B%20DAX-F2C811?logo=powerbi&logoColor=black)
 
-**[📊 View my portfolio](ADD-YOUR-CANVA-LINK-HERE)** · **[⚡ Run it in 5 minutes](#run-it-in-5-minutes)**
+**[📊 View my portfolio](https://canva.link/sl2tsx4x0eob9ot)** · **[⚡ Run it in 5 minutes](#run-it-in-5-minutes)**
 
 </div>
 
